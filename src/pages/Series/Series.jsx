@@ -13,7 +13,9 @@ function Series() {
     const seriesUrls = Array.from(
       { length: 5 },
       (_, i) =>
-        `https://api.themoviedb.org/3/tv/top_rated?api_key=${API_KEY}&language=en-US&page=${i + 1}`
+        `https://api.themoviedb.org/3/tv/top_rated?api_key=${API_KEY}&language=en-US&page=${
+          i + 1
+        }`
     );
 
     const requests = seriesUrls.map((url) => axios.get(url));
@@ -46,10 +48,10 @@ function Series() {
                   <Image
                     src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
                     alt={serie.name}
-                    borderRadius="md"
+                    borderRadius="xl"
                     width="200px"
                     height="300px"
-                    _hover={{ filter: "blur(4px)" }}
+                    _hover={{ filter: "blur(2px)" }}
                   />
                   <Box
                     position="absolute"
@@ -57,13 +59,13 @@ function Series() {
                     left="0"
                     right="0"
                     bg="rgba(0, 0, 0, 0.5)"
-                    p={2}
+                    p={1}
                   >
-                    <Text color="white" fontSize="sm">
+                    <Text color="#ECC94B" fontSize="sm">
                       {serie.name} (
                       {new Date(serie.first_air_date).getFullYear()})
                     </Text>
-                    <Text color="white" fontSize="xs">
+                    <Text color="#ECC94B" fontSize="xs">
                       IMDb: {serie.vote_average}
                     </Text>
                   </Box>

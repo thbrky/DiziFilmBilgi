@@ -8,33 +8,32 @@ import {
   Heading,
   Flex,
 } from "@chakra-ui/react";
-import Header from "./pages/components/Header";
 import logo from "./pages/components/Videotape.gif";
+
 function KayitOl() {
-  const [formData, setFormData] = useState({
-    ad: "",
-    soyad: "",
+  const [register, setRegister] = useState({
+    name: "",
+    surname: "",
     email: "",
-    sifre: "",
+    password: "",
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+  const handleInputChange = (e) => {
+    setRegister({
+      ...register,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData); // Form bilgilerini konsola yazdır
-    // Form gönderme işlemleri burada yapılabilir
+    // Kayıt işlemleri burada gerçekleştirilecek
+    console.log(register);
   };
 
   return (
     <>
-      <Flex mt={"120px"}>
+      <Flex mt={"120px"} justifyContent="center" alignItems="center">
         <Box
           maxW="md"
           mx="auto"
@@ -50,24 +49,22 @@ function KayitOl() {
           </Heading>
 
           <form onSubmit={handleSubmit}>
-            <FormControl id="ad" isRequired>
+            <FormControl id="name" isRequired>
               <FormLabel>Ad</FormLabel>
               <Input
                 type="text"
-                name="ad"
-                value={formData.ad}
-                onChange={handleChange}
+                name="name"
+                onChange={handleInputChange}
                 placeholder="Adınız"
               />
             </FormControl>
 
-            <FormControl id="soyad" mt={4} isRequired>
+            <FormControl id="surname" mt={4} isRequired>
               <FormLabel>Soyad</FormLabel>
               <Input
                 type="text"
-                name="soyad"
-                value={formData.soyad}
-                onChange={handleChange}
+                name="surname"
+                onChange={handleInputChange}
                 placeholder="Soyadınız"
               />
             </FormControl>
@@ -77,19 +74,17 @@ function KayitOl() {
               <Input
                 type="email"
                 name="email"
-                value={formData.email}
-                onChange={handleChange}
+                onChange={handleInputChange}
                 placeholder="E-posta adresiniz"
               />
             </FormControl>
 
-            <FormControl id="sifre" mt={4} isRequired>
+            <FormControl id="password" mt={4} isRequired>
               <FormLabel>Şifre</FormLabel>
               <Input
                 type="password"
-                name="sifre"
-                value={formData.sifre}
-                onChange={handleChange}
+                name="password"
+                onChange={handleInputChange}
                 placeholder="Şifreniz"
               />
             </FormControl>
@@ -99,8 +94,8 @@ function KayitOl() {
             </Button>
           </form>
         </Box>
-        <Box mt={"10px"} mr={"260px"}>
-          <img src={logo} alt="Giris img" width={"600px"} height={"60px"} />
+        <Box mt={"10px"} ml={4} mr={"200px"}>
+          <img src={logo} alt="Giris img" width={"600px"} height={"600px"} />
         </Box>
       </Flex>
     </>

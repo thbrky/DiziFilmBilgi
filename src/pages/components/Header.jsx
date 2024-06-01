@@ -20,10 +20,11 @@ const Header = () => {
           as={Link}
           to="/Series"
           fontSize="xl"
+          ml="15rem"
           mr="2rem"
           bg={"#020202"}
           color={"#ECC94B"}
-          fontWeight={"bold"}
+          fontWeight={"600"}
           _hover={{ bg: "#ECC94B", color: "gray.200" }}
           _active={{ color: "gray.600", fontWeight: "bold" }}
         >
@@ -36,7 +37,7 @@ const Header = () => {
           mr="2rem"
           bg={"#020202"}
           color={"#ECC94B"}
-          fontWeight={"bold"}
+          fontWeight={"600"}
           _hover={{ bg: "#ECC94B", color: "gray.200" }}
           _active={{ color: "gray.600", fontWeight: "bold" }}
         >
@@ -52,7 +53,7 @@ const Header = () => {
             size="xl"
             letterSpacing={".1rem"}
             color="#ECC94B"
-            fontWeight={"thin"}
+            fontWeight={"bolder"}
             cursor="pointer" // İlgilenecek imleç stilini ekledik
           >
             Dizi Film Diyarı
@@ -69,7 +70,7 @@ const Header = () => {
           fontSize="xl"
           bg={"#020202"}
           color={"#ECC94B"}
-          fontWeight={"bold"}
+          fontWeight={"600"}
           _hover={{
             bg: "#ECC94B",
             color: "gray.200",
@@ -82,9 +83,10 @@ const Header = () => {
           as={Link}
           to="/Signup"
           fontSize="xl"
+          mr="15rem"
           bg={"#020202"}
           color={"#ECC94B"}
-          fontWeight={"bold"}
+          fontWeight={"600"}
           _hover={{ bg: "#ECC94B", color: "gray.200" }}
           _active={{ color: "gray.600", fontWeight: "bold" }}
         >

@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom"; // Link bileşenini ekliyoruz
 import Header from "./pages/components/Header";
 import {
   Box,
   Flex,
   Heading,
-  Link as ChakraLink,
   Image,
   Text,
   Grid,
   GridItem,
   Divider,
-  Center,
 } from "@chakra-ui/react";
 
 function Anasayfa() {
@@ -45,15 +44,17 @@ function Anasayfa() {
   return (
     <>
       <Header />
-      <Box mt={"120px"} bg={"#020202"}>
+      <Box bg={"#020202"}>
         <Flex direction="column" alignItems="center">
           <section>
             <Heading
               flex={1}
               textAlign={"center"}
               as="h2"
-              mb={4}
+              mt={2}
+              mb={6}
               color={"#ECC94B"}
+              fontWeight={"200"}
             >
               En İyi 10 Film
             </Heading>
@@ -70,46 +71,58 @@ function Anasayfa() {
                     (e.currentTarget.childNodes[0].style.filter = "none")
                   }
                 >
-                  <Image
-                    width={"300px"}
-                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                    alt={movie.title}
-                  />
-                  <Box
-                    position="absolute"
-                    bottom="0"
-                    left="0"
-                    right="0"
-                    bg="rgba(0, 0, 0, 0.6)"
-                    color="white"
-                    p="2"
-                  >
-                    <Text
-                      fontSize="sm"
-                      fontWeight="bold"
-                      textAlign={"center"}
-                      flex={1}
+                  <Link to={`/movies/${movie.id}`}>
+                    {" "}
+                    {/* Link bileşeni eklendi */}
+                    <Image
+                      width={"250px"}
+                      src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                      alt={movie.title}
+                    />
+                    <Box
+                      position="absolute"
+                      bottom="0"
+                      left="0"
+                      right="0"
+                      bg="rgba(0, 0, 0, 0.6)"
+                      color="#ECC94B"
+                      p={1}
                     >
-                      {movie.title}
-                    </Text>
-                    <Text
-                      textAlign={"center"}
-                      flex={1}
-                      fontSize="xs"
-                    >{`Yıl: ${movie.release_date.split("-")[0]}, IMDb: ${movie.vote_average}`}</Text>
-                  </Box>
+                      <Text
+                        fontSize="sm"
+                        fontWeight="bold"
+                        textAlign={"center"}
+                        flex={1}
+                      >
+                        {movie.title}
+                      </Text>
+                      <Text
+                        textAlign={"center"}
+                        flex={1}
+                        fontSize="xs"
+                      >{`Yıl: ${movie.release_date.split("-")[0]}, IMDb: ${
+                        movie.vote_average
+                      }`}</Text>
+                    </Box>
+                  </Link>
                 </GridItem>
               ))}
             </Grid>
           </section>
-          <Divider height={"50px"} mb={12}></Divider>
+          <Divider
+            height={"50px"}
+            mb={12}
+            mt={12}
+            borderColor={"#ECC94B"}
+          ></Divider>
           <section mt={6}>
             <Heading
               flex={1}
               textAlign={"center"}
               as="h2"
-              mb={4}
+              mb={6}
               color={"#ECC94B"}
+              fontWeight={"200"}
             >
               En İyi 10 Dizi
             </Heading>
@@ -125,34 +138,40 @@ function Anasayfa() {
                     (e.currentTarget.childNodes[0].style.filter = "none")
                   }
                 >
-                  <Image
-                    width={"300px"}
-                    src={`https://image.tmdb.org/t/p/w500${series.poster_path}`}
-                    alt={series.name}
-                  />
-                  <Box
-                    position="absolute"
-                    bottom="0"
-                    left="0"
-                    right="0"
-                    bg="rgba(0, 0, 0, 0.6)"
-                    color="white"
-                    p="2"
-                  >
-                    <Text
-                      fontSize="sm"
-                      fontWeight="bold"
-                      textAlign={"center"}
-                      flex={1}
+                  <Link to={`/series/${series.id}`}>
+                    {" "}
+                    {/* Link bileşeni eklendi */}
+                    <Image
+                      width={"250px"}
+                      src={`https://image.tmdb.org/t/p/w500${series.poster_path}`}
+                      alt={series.name}
+                    />
+                    <Box
+                      position="absolute"
+                      bottom="0"
+                      left="0"
+                      right="0"
+                      bg="rgba(0, 0, 0, 0.6)"
+                      color="#ECC94B"
+                      p="2"
                     >
-                      {series.name}
-                    </Text>
-                    <Text
-                      flex={1}
-                      fontSize="xs"
-                      textAlign={"center"}
-                    >{`Yıl: ${series.first_air_date.split("-")[0]}, IMDb: ${series.vote_average}`}</Text>
-                  </Box>
+                      <Text
+                        fontSize="sm"
+                        fontWeight="bold"
+                        textAlign={"center"}
+                        flex={1}
+                      >
+                        {series.name}
+                      </Text>
+                      <Text
+                        flex={1}
+                        fontSize="xs"
+                        textAlign={"center"}
+                      >{`Yıl: ${series.first_air_date.split("-")[0]}, IMDb: ${
+                        series.vote_average
+                      }`}</Text>
+                    </Box>
+                  </Link>
                 </GridItem>
               ))}
             </Grid>

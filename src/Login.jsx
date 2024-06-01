@@ -3,9 +3,7 @@ import {
   Button,
   Flex,
   Box,
-  Spacer,
   Link as ChakraLink,
-  Center,
   Heading,
   FormControl,
   FormLabel,
@@ -20,7 +18,8 @@ function Signin() {
   return (
     <>
       {/* <Header /> */}
-      <Flex mt={"120px"}>
+
+      <Flex mt={"50px"}>
         <Box ml={"230px"}>
           <img src={logo} alt="Giris img" width={"650px"} height={"60px"} />
         </Box>

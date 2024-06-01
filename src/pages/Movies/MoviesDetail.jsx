@@ -70,8 +70,8 @@ function MoviesDetail() {
               src={`https://image.tmdb.org/t/p/w500${film.poster_path}`}
               alt={filmTitle}
               borderRadius="md"
-              width="300px"
-              height="450px"
+              width="320px"
+              height="480px"
             />
             <Text
               position="absolute"
@@ -83,7 +83,7 @@ function MoviesDetail() {
               p={2}
               fontSize="2xl"
               textAlign="center"
-              fontWeight={"bold"}
+              fontWeight={"800"}
               mt={12}
             >
               {filmTitle}
@@ -98,20 +98,25 @@ function MoviesDetail() {
             fontSize={"medium"}
           >
             <Text fontSize="xl" mt={48}>
-              Yıl: {new Date(film.release_date).getFullYear()}
+              <strong>Yıl:</strong>{" "}
+              <span style={{ fontWeight: "normal" }}>
+                {new Date(film.release_date).getFullYear()}
+              </span>
             </Text>
             <Text mt={2} mb={2}>
-              IMDb Puanı: {film.vote_average}
+              <strong>IMDb Puanı:</strong>{" "}
+              <span style={{ fontWeight: "normal" }}>{film.vote_average}</span>
             </Text>
             <Text mt={2} mb={2}>
-              Özet: {film.overview}
+              <strong>Özet:</strong>{" "}
+              <span style={{ fontWeight: "normal" }}>{film.overview}</span>
             </Text>
             <Text mt={2} mb={2}>
-              Tür:{" "}
+              <strong>Tür: </strong>
               <Wrap spacing="4px">
                 {genres.map((genre) => (
                   <WrapItem key={genre.id}>
-                    <Text color="#ECC94B" fontSize="sm" fontWeight="bold">
+                    <Text color="#ECC94B" fontSize="sm" fontWeight="normal">
                       {genre.name}
                     </Text>
                   </WrapItem>
@@ -119,12 +124,12 @@ function MoviesDetail() {
               </Wrap>
             </Text>
             <Divider mt={4} mb={4} />
-            <Text fontWeight="bold" fontSize="lg">
+            <Text fontWeight="bolder" fontSize="lg">
               Başrol Oyuncuları:
             </Text>
             <VStack spacing={4} align="start">
               {cast.map((actor) => (
-                <Text key={actor.id}>
+                <Text fontWeight={"normal"} key={actor.id}>
                   {actor.name} - {actor.character}
                 </Text>
               ))}

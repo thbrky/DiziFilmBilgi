@@ -78,9 +78,9 @@ function SeriesDetail() {
             <Image
               src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
               alt={serieName}
-              borderRadius="md"
-              width="300px"
-              height="450px"
+              borderRadius="xl"
+              width="320px"
+              height="480px"
             />
             <Text
               position="absolute"
@@ -92,7 +92,7 @@ function SeriesDetail() {
               p={2}
               fontSize="2xl"
               textAlign="center"
-              fontWeight={"bold"}
+              fontWeight={"800"}
               mt={12}
             >
               {serieName}
@@ -107,29 +107,43 @@ function SeriesDetail() {
             fontSize={"medium"}
           >
             <Text fontSize="xl" mt={48}>
-              Yıl: {new Date(serie.first_air_date).getFullYear()}
+              <strong>Yıl:</strong>{" "}
+              <span style={{ fontWeight: "normal" }}>
+                {new Date(serie.first_air_date).getFullYear()}
+              </span>
             </Text>
             <Text mt={2} mb={2}>
-              IMDb Puanı: {serie.vote_average}
+              <strong> IMDb Puanı:</strong>{" "}
+              <span style={{ fontWeight: "normal" }}>{serie.vote_average}</span>
             </Text>
             <Text mt={2} mb={2}>
-              Özet: {serie.overview}
+              <strong> Özet: </strong>
+              <span style={{ fontWeight: "normal" }}>{serie.overview}</span>
             </Text>
             <Text mt={2} mb={2}>
-              Her Bölüm Ortalama: {episodeRuntime} dakika
+              <strong>Her Bölüm Ortalama:</strong>{" "}
+              <span style={{ fontWeight: "normal" }}>
+                {episodeRuntime} dakika
+              </span>
             </Text>
             <Text mt={2} mb={2}>
-              Toplam Sezon: {serie.number_of_seasons}
+              <strong>Toplam Sezon:</strong>{" "}
+              <span style={{ fontWeight: "normal" }}>
+                {serie.number_of_seasons}
+              </span>
             </Text>
             <Text mt={2} mb={2}>
-              Toplam Bölüm: {serie.number_of_episodes}
+              <strong>Toplam Bölüm:</strong>{" "}
+              <span style={{ fontWeight: "normal" }}>
+                {serie.number_of_episodes}
+              </span>
             </Text>
             <Text mt={2} mb={2}>
-              Tür:{" "}
+              <strong>Tür:</strong>{" "}
               <Wrap spacing="4px">
                 {genres.map((genre) => (
                   <WrapItem key={genre.id}>
-                    <Text color="#ECC94B" fontSize="sm" fontWeight="bold">
+                    <Text color="#ECC94B" fontSize="sm" fontWeight="normal">
                       {genre.name}
                     </Text>
                   </WrapItem>
@@ -138,11 +152,11 @@ function SeriesDetail() {
             </Text>
             <Divider mt={4} mb={4} />
             <Text fontWeight="bold" fontSize="lg">
-              Başrol Oyuncuları:
+              <strong>Başrol Oyuncuları:</strong>
             </Text>
             <VStack spacing={4} align="start">
               {cast.map((actor) => (
-                <Text key={actor.id}>
+                <Text fontWeight={"normal"} key={actor.id}>
                   {actor.name} - {actor.character}
                 </Text>
               ))}
